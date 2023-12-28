@@ -3,7 +3,7 @@ import mediapipe as mp
 import time
 from FaceRecognitionModule import FaceDetector
 
-cap = cv2.VideoCapture("PoseVideos.mp4")
+cap = cv2.VideoCapture("FaceVideo.mp4")
 pTime = 0
 detector = FaceDetector()
 while True:
