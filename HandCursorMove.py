@@ -60,23 +60,7 @@ def fingers_up(positions):
     
     return fingers
 
-def point_up(positions):
-    y_values = []
-    y_values.append(positions[:][:][2])
-    max_y = np.max(y_values)
-    min_y = np.min(y_values)
-    if positions[:][8][2] < max_y - ((max_y-min_y)/5):
-        return 1
-    return 0
 
-def middle_up(positions):
-    y_values = []
-    y_values.append(positions[:][:][2])
-    max_y = np.max(y_values)
-    min_y = np.min(y_values)
-    if positions[:][12][2] < max_y - ((max_y-min_y)/5):
-        return 1
-    return 0
 
 def cursormove(frm, positions):
     
@@ -97,7 +81,7 @@ def cursormove(frm, positions):
         autopy.mouse.move(scr_width - x_smooth, y_smooth)
         #prev_locx, prev_locy = current_locx, current_locy
 
-    elif fingers_up(positions_list)[2] == 1 and fingers_up(positions_list)[3] == 1 and fingers_up(positions_list)[4] == 0 and fingers_up(positions_list)[5] == 0 and length < 20:
+    elif fingers_up(positions_list)[2] == 1 and fingers_up(positions_list)[3] == 1 and fingers_up(positions_list)[4] == 0 and fingers_up(positions_list)[5] == 0 and length < 10:
         cv2.circle(frame, positions_list[8][1:], 10, (0,255,0), cv2.FILLED)
         cv2.circle(frame, positions_list[12][1:], 10, (0,255,0), cv2.FILLED)
         autopy.mouse.click()
